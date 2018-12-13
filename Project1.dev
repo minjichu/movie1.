@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=movie_linkedListFunction\movie.c
+FileName=linkedList.c
 CompileCpp=0
 Folder=
 Compile=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=movie_linkedListFunction\linkedList.c
+FileName=linkedList.h
 CompileCpp=0
 Folder=
 Compile=1
@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=movie_linkedListFunction\linkedList.h
+FileName=main.c
 CompileCpp=0
 Folder=
 Compile=1
@@ -81,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=movie_linkedListFunction\main.c
+FileName=movie.c
 CompileCpp=0
 Folder=
 Compile=1
@@ -91,7 +91,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=movie_linkedListFunction\movie.h
+FileName=movie.h
 CompileCpp=0
 Folder=
 Compile=1

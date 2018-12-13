@@ -29,17 +29,17 @@ int main(int argc, char *argv[]) {
 	
 	//1.3 read each movie data from the file and add it to the linked list
 	printf ("reading data files \n");
-	while ( fscanf(fp,"%s %s %i %f",name,country,&runTime,&score) !=EOF)
+	while ( fscanf(fp,"%s %s %i %f",name,country,&runTime,&score) !=EOF) //while 문으로 data읽음  
 	{	
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		mvInfo = mv_genMvInfo(name,score,runTime,country);
 		list_addTail(mvInfo, list);
 	}
-	printf("Read done! %i read",list_len(list));
-	//1.4 FILE close
-	fclose(fp);
+	printf("Read done! %i read",list_len(list)); // 읽기 완료  
+	//1.4 FILE close 
+	fclose(fp); 
 	//2. program start
-	while(exit_flag == 0) 
+	while(exit_flag == 0)  
 	{
 	//2.1 print menu message and get input option
 		printf("---------MENU--------\n");
@@ -51,9 +51,9 @@ int main(int argc, char *argv[]) {
 		printf("---------MENU--------\n");
 		printf("select an option :\n");
 		
-		scanf("%i",&option); 
+		scanf("%i",&option); // 선택된 option을  프로그램에 받음  
 		
-		switch(option)
+		switch(option) // switch문으로 옵션별로 실행  
 		{
 			case 1: //print all the movies
 				printf("printing all the movies in the list.....\n\n\n");
@@ -75,15 +75,16 @@ int main(int argc, char *argv[]) {
 					printf("print movies of specific country\n");//print movies of specific country
 					scanf("%s",country);
 				//2.3.1 get country name to search for
-				ndPtr = list;
-				int count =0;
+					ndPtr = list;
+					int count =0;
 					while (list_isEndNode(ndPtr)!=1)/* repeat until the ndPtr points to the end node */
 				{
 					//2.3.2 print a movie data : use functions of movie.c and linkedList.c
 					ndPtr =list_getNextNd(ndPtr); //ndPtr = the next node of the ndPtr;
 					mvInfo = list_getNdObj(ndPtr); //get object of ndPtr to mvInfo void pointer
 					
-					if(strcmp(country, mv_getCountry(mvInfo))==0 ) 	//if the input country matches to the country of the movie,
+					if(strcmp(country, mv_getCountry(mvInfo))==0 ) 	//if the input country matches to the country of the movie, 문자열 비교함수 사용  
+					
 					{
 						mv_print(mvInfo); 	//then print the contents of the mvInfo
 						printf("--------------------\n");
