@@ -41,37 +41,63 @@ int main(int argc, char *argv[]) {
 	//2. program start
 	while(exit_flag == 0) 
 	{
-		//2.1 print menu message and get input option
-		scanf("%i",&option);
+	//2.1 print menu message and get input option
+		printf("---------MENU--------\n");
+		printf("1) print all the movies\n");
+		printf("2) search for specific country movies\n");
+		printf("3) search for specific runtime movies\n");
+		printf("4) search for specific score movies\n");
+		printf("5) exit\n");
+		printf("---------MENU--------\n");
+		printf("select an option :\n");
+		
+		scanf("%i",&option); 
+		
 		switch(option)
 		{
 			case 1: //print all the movies
 				printf("printing all the movies in the list.....\n\n\n");
 				
 				ndPtr = list;
-				while (1/* repeat until the ndPtr points to the end node */)
+				while (list_isEndNode(ndPtr)!=1)/* repeat until the ndPtr points to the end node */
 				{
 					//2.2 print a movie data : use functions of movie.c and linkedList.c
-					//ndPtr = the next node of the ndPtr;
-					//get object of ndPtr to mvInfo void pointer
-					//print the contents of the mvInfo
+					ndPtr =list_getNextNd(ndPtr); //ndPtr = the next node of the ndPtr;
+					mvInfo = list_getNdObj(ndPtr); //get object of ndPtr to mvInfo void pointer
+					mv_print(mvInfo);//print the contents of the mvInfo
+						printf("-----------\n");
+													
 				}
 				
 				break;
 				
-			case 2: //print movies of specific country
+			case 2: 
+					printf("print movies of specific country\n");//print movies of specific country
+					scanf("%s",country);
 				//2.3.1 get country name to search for
-				
 				ndPtr = list;
-					while (1/* repeat until the ndPtr points to the end node */)
+				int count =0;
+					while (list_isEndNode(ndPtr)!=1)/* repeat until the ndPtr points to the end node */
 				{
 					//2.3.2 print a movie data : use functions of movie.c and linkedList.c
-					//ndPtr = the next node of the ndPtr;
-					//get object of ndPtr to mvInfo void pointer
+					ndPtr =list_getNextNd(ndPtr); //ndPtr = the next node of the ndPtr;
+					mvInfo = list_getNdObj(ndPtr); //get object of ndPtr to mvInfo void pointer
+					
+					if(strcmp(country, mv_getCountry(mvInfo))==0 )
+					{
+						mv_print(mvInfo);
+						printf("--------------------\n");
+						count++ ;
+					}
+
 					//if the input country matches to the country of the movie,
 					//then print the contents of the mvInfo
 				}
-				
+					printf("\n");
+					printf("\n");
+					printf("totally %i moives are listed !!! \n", count);
+					printf("\n");
+					printf("\n");
 				break;
 				
 			case 3:
