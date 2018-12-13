@@ -22,19 +22,16 @@ int main(int argc, char *argv[]) {
 	
 	//1. reading the movie.dat-----------------------------
 	//1.1 FILE open
-	fp = open("movie.dat","r+"); 
+	fp = open("movie.dat","r"); 
 	
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
-	void list_genList(void)
-	{
-	
-	}
+
 	//1.3 read each movie data from the file and add it to the linked list
-	
-	while ( /* read name, country, runtime and score*/ )
+	while ( fscanf(fp, ¡°%s %s %i %f¡±,name,contry,&runTime,&score )!=EOF)
 	{	
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
+		mvInfo = mv_genMvInfo(name,score,runTime,country);
 		list_addTail(mvInfo, list);
 	}
 
