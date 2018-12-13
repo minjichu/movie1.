@@ -16,9 +16,11 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 	movInfo_t* mvPtr;
 	mvPtr =(movInfo_t*)malloc(sizeof(movInfo_t));
 	
-	
 	//allocate memory and set the member variables
-	
+	strcpy(mvPtr->madeIn,country);
+	strcpy(mvPtr->name,name);
+	mvPtr->runTime = runTime;
+	mvPtr->score = score;
 	return (void*)mvPtr;
 }
 

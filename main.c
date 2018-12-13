@@ -22,33 +22,34 @@ int main(int argc, char *argv[]) {
 	
 	//1. reading the movie.dat-----------------------------
 	//1.1 FILE open
-	fp = open("movie.dat","r"); 
+	fp = fopen("movie.dat","r"); 
 	
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
-
+	
 	//1.3 read each movie data from the file and add it to the linked list
-	while ( fscanf(fp, ¡°%s %s %i %f¡±,name,contry,&runTime,&score )!=EOF)
+	printf ("reading data files \n");
+	while ( fscanf(fp,"%s %s %i %f",name,country,&runTime,&score) !=EOF)
 	{	
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		mvInfo = mv_genMvInfo(name,score,runTime,country);
 		list_addTail(mvInfo, list);
 	}
-
+	printf("Read done! %i read",list_len(list));
 	//1.4 FILE close
-	
+	fclose(fp);
 	//2. program start
 	while(exit_flag == 0) 
 	{
 		//2.1 print menu message and get input option
-		
+		scanf("%i",&option);
 		switch(option)
 		{
 			case 1: //print all the movies
 				printf("printing all the movies in the list.....\n\n\n");
 				
 				ndPtr = list;
-				while (/* repeat until the ndPtr points to the end node */)
+				while (1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -62,7 +63,7 @@ int main(int argc, char *argv[]) {
 				//2.3.1 get country name to search for
 				
 				ndPtr = list;
-					while (/* repeat until the ndPtr points to the end node */)
+					while (1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.3.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -77,7 +78,7 @@ int main(int argc, char *argv[]) {
 				//2.4.1 get minimal runtime value to search for
 				
 				ndPtr = list;
-					while (/* repeat until the ndPtr points to the end node */)
+					while (1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.4.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
@@ -92,7 +93,7 @@ int main(int argc, char *argv[]) {
 				//2.5.1 get minimal score value to search for
 				
 				ndPtr = list;
-					while (/* repeat until the ndPtr points to the end node */)
+					while (1/* repeat until the ndPtr points to the end node */)
 				{
 					//2.5.2 print a movie data : use functions of movie.c and linkedList.c
 					//ndPtr = the next node of the ndPtr;
